@@ -16,5 +16,5 @@ jobs:
 
       - name: Push to GHCR and Logout
         run: |
-          docker push ghcr.io/GregoriusDavin/laraveldavin:latest
+          docker push ghcr.io/davingreg/laraveldavin:latest
           docker logout
