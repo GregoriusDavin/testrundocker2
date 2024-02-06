@@ -12,7 +12,7 @@ jobs:
         run: |
           docker context use default
           docker login -u GregoriusDavin -p${{ secrets.GH_PAT }} ghcr.io
-          docker compose build . --tag ghcr.io/GregoriusDavin/laraveldavin:latest
+          docker compose build . -t ghcr.io/GregoriusDavin/laraveldavin:latest
 
       - name: Push to GHCR and Logout
         run: |
