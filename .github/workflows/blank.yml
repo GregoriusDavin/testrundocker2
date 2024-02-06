@@ -12,3 +12,17 @@ jobs:
       - name: Check Version
         run: |
           docker compose version
+
+      - name: Build
+        run: |
+          docker context use default
+          docker compose build
+
+      - name: Login
+        run: |
+          docker login -u davingreg -p${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Push
+        run: |
+          docker push davingreg/laraveldavin:latest
+          docker logout
