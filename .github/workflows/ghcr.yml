@@ -4,7 +4,9 @@ on:
 jobs: 
   build_and_publish:
     runs_on: ubuntu-latest
-      - uses: action/checkout@v3
+      - name : Checkout Code
+        uses: action/checkout@v3
+        
       - name: Build the Image
         run: |
           docker context use default
