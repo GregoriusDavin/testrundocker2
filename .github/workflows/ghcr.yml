@@ -1,0 +1,17 @@
+name: Build and Push to GHCR
+on: 
+  push
+jobs: 
+  build_and_publish:
+    runs_on: ubuntu-latest
+      - uses: action/checkout@v3
+      - name: Build the Image
+        run: |
+          docker context use default
+          docker login -u GregoriusDavin -p${{ secrets.GH_PAT }} ghcr.io
+          docker compose build . --tag ghcr.io/GregoriusDavin/laraveldavin:latest
+
+      - name: Push to GHCR and Logout
+        run: |
+          docker push ghcr.io/GregoriusDavin/laraveldavin:latest
+          docker logout
