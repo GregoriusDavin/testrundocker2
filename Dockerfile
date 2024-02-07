@@ -52,6 +52,8 @@ RUN composer install --ignore-platform-reqs
 RUN composer dump-autoload
 RUN php artisan optimize
 
+ADD entrypoint.sh /root/entrypoint.sh
+
 # ENTRYPOINT [ "/bin/sh", "/root/run/sh" ]
 
 EXPOSE 80
