@@ -9,14 +9,14 @@ services:
     restart: always
     ports:
       - "8000:80"
-    # volumes:
-    #   - ./.env:/var/www/html/.env
-    #   - ./supervisord.conf:/etc/supervisord.conf
-    #   - ./php.ini:/usr/local/etc/php/conf.d/app.ini
-    #   - ./nginx.conf:/etc/nginx/sites-enabled/default
-    #   - ./nginx.conf:/etc/nginx/sites-available/default
-    #   - ./entrypoint.sh:/root/run/sh
-    # entrypoint: ["/bin/sh","/root/run/sh"]
+    volumes:
+      - ./.env:/var/www/html/.env
+      - ./supervisord.conf:/etc/supervisord.conf
+      - ./php.ini:/usr/local/etc/php/conf.d/app.ini
+      - ./nginx.conf:/etc/nginx/sites-enabled/default
+      - ./nginx.conf:/etc/nginx/sites-available/default
+      - ./entrypoint.sh:/root/run/sh
+    entrypoint: ["/bin/sh","/root/run/sh"]
     environment:
       - TZ=Asia/Jakarta
       - APP_DEBUG=false
