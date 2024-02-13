@@ -26,6 +26,3 @@ jobs:
         run: |
           docker compose push
           docker logout
-      - name: up
-        run: |
-          docker compose up -d
